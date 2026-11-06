@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Disney+ Link Redirector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="popup">
+  <header>
+    <div class="logo">D+</div>
+    <div><h1>Disney+ Link Redirector</h1><p class="muted">Regional links → title pages</p></div>
+  </header>
+  <section class="topline">
+    <label for="enabled">Automatically redirect links</label>
+    <input id="enabled" type="checkbox" checked>
+  </section>
+  <section>
+    <label for="locale">Destination language / region</label>
+    <select id="locale">
+      <option value="en-gb">English (UK) — en-gb</option>
+      <option value="en-us">English (US) — en-us</option>
+      <option value="ar-eg">Arabic (Egypt) — ar-eg</option>
+      <option value="en-eg">English (Egypt) — en-eg</option>
+      <option value="en-ca">English (Canada) — en-ca</option>
+      <option value="en-au">English (Australia) — en-au</option>
+    </select>
+    <label for="unknownAction">When no exact match is found</label>
+    <select id="unknownAction">
+      <option value="search">Open title search (recommended)</option>
+      <option value="original">Keep the original regional link</option>
+    </select>
+  </section>
+  <section>
+    <h2>Add a mapping</h2>
+    <p class="muted">Use this to teach the extension any links the automatic lookup misses.</p>
+    <label for="source">Original URL or numeric ID</label>
+    <input id="source" type="text" placeholder="…/eg/movies/movie-name/1234567890" spellcheck="false">
+    <label for="destination">Matching new Disney+ URL</label>
+    <input id="destination" type="text" placeholder="…/en-gb/browse/entity-..." spellcheck="false">
+    <button id="save">Save mapping</button>
+    <div id="feedback" role="status"></div>
+  </section>
+  <section>
+    <div class="heading-row"><h2>Saved mappings</h2><span id="count" class="count">0</span></div>
+    <div id="mappingList" class="mapping-list"></div>
+  </section>
+  <section>
+    <h2>Check a link</h2>
+    <label for="test">Paste a legacy Disney+ URL</label>
+    <input id="test" type="text" placeholder="https://www.apps.disneyplus.com/eg/…" spellcheck="false">
+    <button id="check" class="secondary">Check destination</button>
+    <div id="result" role="status"></div>
+  </section>
+  <footer>Works with movie &amp; show title links. Does not bypass regional availability or subscriptions.</footer>
+  <script src="resolver-core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
